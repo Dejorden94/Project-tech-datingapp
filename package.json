@@ -1,0 +1,25 @@
+{
+  "name": "overzicht",
+  "version": "1.0.0",
+  "description": "Overview of all matches",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dejorden94/Project-tech-datingapp.git"
+  },
+  "keywords": [
+    "Overview"
+  ],
+  "author": "Dejorden Moerman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dejorden94/Project-tech-datingapp/issues"
+  },
+  "homepage": "https://github.com/Dejorden94/Project-tech-datingapp#readme",
+  "dependencies": {
+    "bespoke-simple-overview": "^1.0.0"
+  }
+}
