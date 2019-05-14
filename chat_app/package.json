@@ -1,15 +1,14 @@
 {
-  "name": "match_overzicht",
+  "name": "chat_app",
   "version": "1.0.0",
-  "description": "Package voor het match overzicht.",
+  "description": "This packagae is for the chat itself.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "overzicht"
+    "chat"
   ],
   "author": "Dejorden Moerman",
-  "license": "ISC",
-  "dependencies": {}
+  "license": "ISC"
 }
