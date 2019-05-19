@@ -8,7 +8,7 @@ To use my app you wil need the following packages.
 - ejs
 - express
 
-#Built With
+# Built With
 sublime text
 cmder
 ejs
@@ -16,8 +16,8 @@ express
 nodemon
 bespoke-simple-overview
 
-#Authors
+# Authors
 Dejorden Moerman
 
-#License
+# License
 This project is licensed under the MIT License
