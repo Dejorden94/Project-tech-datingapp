@@ -30,4 +30,4 @@ bespoke-simple-overview
 Dejorden Moerman
 
 # License
-This project is licensed under the MIT License
+This project is licensed under the [MIT](https://opensource.org/licenses/MIT) License
