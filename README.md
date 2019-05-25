@@ -40,7 +40,7 @@ nodemon
 
 bespoke-simple-overview
 
-# Authors
+# Author(s)
 Dejorden Moerman
 
 # License
