@@ -23,6 +23,10 @@
     "bespoke-simple-overview": "^1.0.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "jshint": "^2.10.2",
     "nodemon": "^1.19.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0"
   }
 }
