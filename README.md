@@ -1,7 +1,11 @@
-# About Mole dating
-Mole dating is a blind dating, the focus of this app is to match people on base of how they describe them self and what they are looking for in a partner. In the app you choose one picture that will determine your first impression. The user doesn’t have to swipe to get matches. You will get according to your preferences.
+# About Hooked dating
+Hooked dating is a blind dating app, the focus of this app is to match people on base of how they describe them self and what they are looking for in a partner. In the app you choose one picture that will determine your first impression. The user doesn’t have to swipe to get matches. You will get matched with people according to your preferences. 
 
-In Mole dating you can 
+The app will generate an overview with matches, it is up to the user to start a conversation, when the user really likes someone (if they are hooked on them) and they want to reveal more about them self they can chose to reveal the  entire profile. When they do this the other person can see all the pictures the user uploaded, a description about the person and the common interests they share with their match.   
+
+There is always a possibility that someone really doesn’t want someone else as a match, if this is the case you can chose to remove someone from your matches. The other person won’t see this and they can’t chat with you anymore.
+
+In Hooked dating you can 
   * Login
   * Make a profile
   * Upload pictures
