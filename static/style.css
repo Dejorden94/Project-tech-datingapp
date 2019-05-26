@@ -1,57 +1,102 @@
-*{
-	font-family: ProximaNova;
+* {
+	font-family: Karla;
 	margin: 0;
 	padding: 0;
 }
-body{
+
+body {
 	padding-top: 100px;
-	padding-bottom: 100px;
-	background-color: #ffffaa;
+	padding-bottom: 120px;
+	background-color: #e6e6e6;
 }
-header, footer{
+
+h1 {
+	color: #e31e6e;
+}
+
+header {
+	z-index: 10;
 	position: fixed;
 	height: 100px;
-	background-color: yellow;
-}
-header{
 	top: 0px;
-    left: 0px;
-    right: 0px;
-    margin-top: 0px;
+	left: 0px;
+	right: 0px;
+	margin-top: 0px;
+	/*source:https://www.cssmatic.com/gradient-generator#'\-moz\-linear\-gradient\%28top\%2C\%20rgba\%28255\%2C217\%2C237\%2C1\%29\%200\%25\%2C\%20rgba\%28255\%2C245\%2C250\%2C1\%29\%2019\%25\%2C\%20rgba\%28255\%2C255\%2C255\%2C1\%29\%2026\%25\%2C\%20rgba\%28255\%2C255\%2C255\%2C1\%29\%20100\%25\%29\%3B' */
+	background: rgba(255, 255, 255, 1);
+	background: rgba(255, 217, 237, 1);
+	background: -moz-linear-gradient(top, rgba(255, 217, 237, 1) 0%, rgba(255, 245, 250, 1) 19%, rgba(255, 255, 255, 1) 26%, rgba(255, 255, 255, 1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 217, 237, 1)), color-stop(19%, rgba(255, 245, 250, 1)), color-stop(26%, rgba(255, 255, 255, 1)), color-stop(100%, rgba(255, 255, 255, 1)));
+	background: -webkit-linear-gradient(top, rgba(255, 217, 237, 1) 0%, rgba(255, 245, 250, 1) 19%, rgba(255, 255, 255, 1) 26%, rgba(255, 255, 255, 1) 100%);
+	background: -o-linear-gradient(top, rgba(255, 217, 237, 1) 0%, rgba(255, 245, 250, 1) 19%, rgba(255, 255, 255, 1) 26%, rgba(255, 255, 255, 1) 100%);
+	background: -ms-linear-gradient(top, rgba(255, 217, 237, 1) 0%, rgba(255, 245, 250, 1) 19%, rgba(255, 255, 255, 1) 26%, rgba(255, 255, 255, 1) 100%);
+	background: linear-gradient(to bottom, rgba(255, 217, 237, 1) 0%, rgba(255, 245, 250, 1) 19%, rgba(255, 255, 255, 1) 26%, rgba(255, 255, 255, 1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd9ed', endColorstr='#ffffff', GradientType=0);
 }
-footer{
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    margin-bottom: 0px;
+
+footer {
+	z-index: 20;
+	display: flex;
+	justify-content: space-around;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	margin-bottom: 0px;
+	position: fixed;
+	height: 100px;
+	/*Source: https://www.cssmatic.com/gradient-generator#'\-moz\-linear\-gradient\%28top\%2C\%20rgba\%28255\%2C217\%2C237\%2C1\%29\%200\%25\%2C\%20rgba\%28255\%2C245\%2C250\%2C1\%29\%2019\%25\%2C\%20rgba\%28255\%2C255\%2C255\%2C1\%29\%2026\%25\%2C\%20rgba\%28255\%2C255\%2C255\%2C1\%29\%20100\%25\%29\%3B'*/
+	background: rgba(255, 255, 255, 1);
+	background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 74%, rgba(255, 245, 250, 1) 81%, rgba(255, 217, 237, 1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(74%, rgba(255, 255, 255, 1)), color-stop(81%, rgba(255, 245, 250, 1)), color-stop(100%, rgba(255, 217, 237, 1)));
+	background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 74%, rgba(255, 245, 250, 1) 81%, rgba(255, 217, 237, 1) 100%);
+	background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 74%, rgba(255, 245, 250, 1) 81%, rgba(255, 217, 237, 1) 100%);
+	background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 74%, rgba(255, 245, 250, 1) 81%, rgba(255, 217, 237, 1) 100%);
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 74%, rgba(255, 245, 250, 1) 81%, rgba(255, 217, 237, 1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffd9ed', GradientType=0);
 }
-ul{
+
+ul {
 	line-height: 100px;
 	display: flex;
 	justify-content: space-around;
 }
-li{
+
+li {
 	list-style: none;
 }
-main li{
-	width: 80px;
-	height: 80px;
-	border-radius: 100px;
-	border:5px solid gray;
+
+main li {
+	width: 100px;
+	height: 120px;
+	border-radius: 10px;
+	background: white;
 	margin: 10px 0 0 10px;
 }
-main ul{
+
+main ul {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 }
-img{
-	width: 80px;
-	height: 80px;
+
+img {
+	display: block;
+	margin: 10px auto 0 auto;
+	width: 70px;
+	height: 70px;
 	border-radius: 100px;
 }
-a{
-	text-decoration: none;
+
+li>p {
+	font-weight: bold;
+	position: relative;
+	top: -30px;
+	text-align: center;
+	color: #e31e6e;
 }
-a:visited {
-  text-decoration: none;
+
+button{
+	width: 50px;
+	height: 50px;
+	border: none;
+	background-color: #005aa1;
 }
