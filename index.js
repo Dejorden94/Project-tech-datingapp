@@ -1,6 +1,8 @@
+//Bron: https://www.youtube.com/watch?v=gnsO8-xJ8rs&t=2121s
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
+var expressValidator = require('express-validator');
 
 var app = express();
 
@@ -15,16 +17,53 @@ app.use(express.static(path.join(__dirname,'static')));
 
 var matches = [
 	{
-		naam: "Jordan" 
+		name: "Jordan" 
 	},
 	{
-		naam: "Christy"
+		name: "Christy"
+	},
+	{
+		name: "Barbera" 
+	},
+	{
+		name: "Robin" 
+	},
+	{
+		name: "Marieke" 
+	},
+	{
+		name: "Ilse" 
+	},
+	{
+		name: "Bo" 
+	},
+	{
+		name: "Karin" 
+	},
+	{
+		name: "Rachel" 
+	},
+	{
+		name: "Phoebe" 
+	},
+	{
+		name: "Pip" 
+	},
+	{
+		name: "Nancy" 
+	},
+	{
+		name: "Astrid" 
+	},
+	{
+		name: "Jennifer" 
 	}
-]
+];
 
 app.get('/', function(req, res){
 	res.render('index',{
-		name: 'Dejorden'
+		name: 'Dejorden',
+		matches: matches
 	});
 });
 
