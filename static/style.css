@@ -34,7 +34,7 @@ header {
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd9ed', endColorstr='#ffffff', GradientType=0);
 }
 
-#logo{
+#logo {
 	/*Source: https://stackoverflow.com/questions/8508275/how-to-center-a-position-absolute-element*/
 	margin-left: auto;
 	margin-right: auto;
@@ -44,14 +44,16 @@ header {
 	height: 100%;
 	position: absolute;
 }
-#settings{
+
+#settings {
 	top: 25px;
 	right: 25px;
-	float:right;
+	float: right;
 	position: absolute;
 
 }
-#settings img{
+
+#settings img {
 	height: 50px;
 	width: 50px;
 }
@@ -82,7 +84,8 @@ footer a {
 	text-align: center;
 	display: block;
 }
-.fButtons{
+
+.fButtons {
 	margin-top: 15px;
 	width: 45%;
 }
@@ -126,4 +129,3 @@ li>p {
 	text-align: center;
 	color: #e31e6e;
 }
-
