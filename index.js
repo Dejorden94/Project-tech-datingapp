@@ -13,6 +13,14 @@ app.use(bodyParser.urlencoded({extended:false}));
 //Set static Path
 app.use(express.static(path.join(__dirname,'static')));
 
+var matches = [
+	{
+		naam: "Jordan" 
+	},
+	{
+		naam: "Christy"
+	}
+]
 
 app.get('/', function(req, res){
 	res.render('index',{
