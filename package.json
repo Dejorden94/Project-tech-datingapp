@@ -20,12 +20,13 @@
   },
   "homepage": "https://github.com/Dejorden94/Project-tech-datingapp#readme",
   "dependencies": {
-    "bespoke-simple-overview": "^1.0.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-validator": "^5.3.1",
     "jshint": "^2.10.2",
-    "nodemon": "^1.19.0"
+    "mongoose": "^5.5.11",
+    "nodemon": "^1.19.0",
+    "react-autowhatever": "^10.2.0"
   },
   "devDependencies": {
     "eslint": "^5.16.0"

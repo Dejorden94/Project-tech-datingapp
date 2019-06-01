@@ -1,12 +1,14 @@
 <% include partials/header%>
 <main>
-    <ul>
-        <% matches.forEach(function(matches){ %>
-            <li>
-                <img src="images/adult-beautiful-close-up-1776862.jpg">
-                <p><%= matches.name %></p>
-            </li>
-      <% }) %>
-    </ul>
+    <h2>Voeg interesse toe</h2>
+    <% if(errors){ %>
+        <% errors.forEach(function(error){ %>
+            <li><%= error.msg %> </li>
+        <% }) %>
+    <% } %>
+   <form method="POST" action="/interesses/add">
+        <input type="text" name="interesse">
+        <input type="submit" value = "">
+   </form>
 </main>
 <% include partials/footer%>
