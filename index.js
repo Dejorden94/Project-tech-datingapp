@@ -1,4 +1,5 @@
 //Bron: https://www.youtube.com/watch?v=gnsO8-xJ8rs&t=2121s
+var PORT = process.env.PORT || 3000;
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
@@ -116,7 +117,7 @@ app.post('/', function (req, res) {
 
 app.use(notFound);
 
-app.listen(3000, function () {
+app.listen(PORT, function () {
 	console.log('Server gestart op Port 3000..');
 });
 
