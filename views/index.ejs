@@ -6,9 +6,12 @@
             <li><%= error.msg %> </li>
         <% }) %>
     <% } %>
-   <form method="POST" action="/interesses/add">
+   <form method="post" action="/">
         <input type="text" name="interesse">
         <input type="submit" value = "">
    </form>
+   <section> 
+        <p><%= interesst %></p> 
+        </section> 
 </main>
 <% include partials/footer%>

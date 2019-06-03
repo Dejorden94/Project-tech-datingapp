@@ -4,26 +4,28 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+//source: https://www.youtube.com/watch?v=oT2HOw3fWp4
 
 //connect to mongoddb
 mongoose.connect('mongodb://localhost/datingApp');
 
+var db = mongoose.connection;
+
 //Check of er een connectie is.
 mongoose.connection.once('open',function(){
 	console.log('Database is connected, cool..');
+})
 //Check if there is a error
-}).on('error', function(error){
+.on('error', function(error){
 	console.log('Ah oh, something went wrong. Darn..', error);
 });
-
-var db = mongoose.connection;
 
 /*db.on('error', console.error.blind(console, 'connection error'));
 db.once('open', function(){
 });*/
 
 var app = express();
-
 
 //Set templating engine to ejs
 app.set('view engine', 'ejs');
@@ -41,12 +43,11 @@ app.use(function(req, res, next){
 	res.locals.errors = null;
 	next();
 });
-
 // Express validator middleware
 app.use(expressValidator({
 	errorFormatter: function(param, msg, value){
-		var namespace = param.split('.')
-		, root = namespace.shift() , formParam = root;
+		var namespace = param.split('.'),
+		root = namespace.shift() , formParam = root;
 
 		while(namespace.length){
 			formParam += '[' + namespace.shift() + ']';
@@ -59,16 +60,26 @@ app.use(expressValidator({
 	}
 }));
 
-var interesses = [
+//test array
+/*var interessts = [
 	{
-		interesse: "Vissen" 
+		name: 'Golf'
 	}
-];
+];*/
+
+//Define a schema
+var intersstsSchema = mongoose.Schema({
+	name:String
+});
+
+var interesst = mongoose.model('interessts', intersstsSchema);
+
+interesst.find({name: {$gte: 'Gamen'}});
 
 app.get('/', function(req, res){
 	res.render('index',{
-		interesses: interesses
-	});
+		interesst:interesst
+    });	
 });
 
 app.post('/interesses/add', function(req, res){
@@ -79,12 +90,12 @@ app.post('/interesses/add', function(req, res){
 
 	if(errors){
 		res.render('index',{
-			interesses: interesses,
+			interesst: interesst,
 			errors: errors
 		});
 	}else{
 		var newInterest = {
-			interesse: req.body.interesse
+			interesst: req.body.interessts
 		};
 		console.log(newInterest);
 	}	
