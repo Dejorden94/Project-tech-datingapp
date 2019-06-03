@@ -1,17 +1,18 @@
 <% include partials/header%>
 <main>
-    <h2>Voeg interesse toe</h2>
-    <% if(errors){ %>
-        <% errors.forEach(function(error){ %>
-            <li><%= error.msg %> </li>
+    <% if(errors != undefined){ %>
+            <% errors.forEach(function(error){ %>
+                <p id="errorMsg"><%= error.msg %> </p>
         <% }) %>
     <% } %>
-   <form method="post" action="/">
-        <input type="text" name="interesse">
-        <input type="submit" value = "">
+   <form method="POST" action="/">
+        <input type="text" placeholder= "Voeg interesse toe" name="interesst">
+        <input type="image" src="images/submit-button.png" border="0" alt="Submit" />
    </form>
    <section> 
-        <p><%= interesst %></p> 
+       <% interesst.forEach(function(interesst){ %>
+        <p><%= interesst.name %></p> 
+       <%})%>
         </section> 
 </main>
 <% include partials/footer%>

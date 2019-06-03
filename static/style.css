@@ -5,6 +5,7 @@
 }
 
 body {
+	text-align: center;
 	padding-top: 100px;
 	padding-bottom: 120px;
 	background-color: #e6e6e6;
@@ -58,6 +59,13 @@ header {
 	height: 50px;
 	width: 50px;
 }
+#errorMsg{
+	max-width: none;
+	margin: 10px auto 0 auto;
+	padding: 0;
+	color: red;
+	background-color: transparent;
+}
 
 footer {
 	display: flex;
@@ -101,25 +109,28 @@ li {
 	list-style: none;
 }
 form{
-	display: block;
-	align-content: center;
+	display: flex;
+	
 }
 input[type=text]{
 	background-color: #e6e6e6;
+	border-color: gray;
 	border-radius: 30px;
+	height: 30px;
+	width: 23em;
 }
-input[type=submit] {
+input[type=image] {
+	display: inline-block;
+	line-height: 30px;
 	border: none;
-	width: 50px;
-	height: 50px;
-	border-radius: 30px;
-	background-color: #e31e6e;
+	width: 40px;
+	height: 40px;
 }
 main{
+	padding-bottom: 10px;
 	max-width: 22em;
 	margin: 40px auto 0 auto;
 	background-color: white;
-	height: 28em;
 	border-radius: 30px;
 }
 main li {
@@ -142,6 +153,16 @@ li img {
 	width: 70px;
 	height: 70px;
 	border-radius: 100px;
+}
+p{
+	max-width: 200px;;
+	line-height: 50px;
+	height: 50px;
+	margin: 10px auto 0 auto;
+	text-align: center;
+	color: #e6e6e6;
+	background-color: #e31e6e;
+	border-radius:  30px;
 }
 
 li>p {
