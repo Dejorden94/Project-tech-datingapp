@@ -79,6 +79,8 @@ var interesst = mongoose.model('interessts', intersstsSchema);
 
 var allInteressts = interesst.findOne({type: 'name'});
 */
+
+//Renders the page and takes the dat from database (docs)
 app.get('/', function (req, res) {
 	db.interessts.find(function (err, docs) {
 		res.render('index', {
@@ -93,7 +95,7 @@ app.post('/', function (req, res) {
 	req.checkBody('interesst', 'Laat je matches weten wat jou interesseert').notEmpty();
 
 	var errors = req.validationErrors();
-
+	//When tehir is a error,render the page with the error message
 	if (errors) {
 		db.interessts.find(function (err, docs) {
 		res.render('index', {
@@ -101,7 +103,7 @@ app.post('/', function (req, res) {
 			errors: errors
 		});
 	});
-
+	//If everything is oke, make a new interesst
 	} else {
 		var newInteresst = {
 			name: req.body.interesst
@@ -117,10 +119,12 @@ app.post('/', function (req, res) {
 
 app.use(notFound);
 
+//Port is 3000 orprocess.env.PORT beacause of Heroku
 app.listen(PORT, function () {
 	console.log('Server gestart op Port 3000..');
 });
 
+//If the status is 404 then render the not0found page
 function notFound(req, res) {
 	res.status(404).render('not-found.ejs');
 }

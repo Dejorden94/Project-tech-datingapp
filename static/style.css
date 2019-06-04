@@ -109,6 +109,7 @@ li {
 	list-style: none;
 }
 form{
+	
 	display: flex;
 	
 }
@@ -127,6 +128,7 @@ input[type=image] {
 	height: 40px;
 }
 main{
+	padding-top: 25px;
 	padding-bottom: 10px;
 	max-width: 22em;
 	margin: 40px auto 0 auto;
