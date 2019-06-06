@@ -6,12 +6,12 @@
         <% }) %>
     <% } %>
    <form method="POST" action="/">
-        <input type="text" placeholder= "Voeg interesse toe" name="interesst">
+        <input type="text" placeholder= "Voeg interesse toe" name="interest">
         <input type="image" src="images/submit-button.png" border="0" alt="Submit" />
    </form>
    <section> 
-       <% interesst.forEach(function(interesst){ %>
-        <p><%= interesst.name %></p> 
+       <% data.forEach(function(interest){ %>
+        <p><%= interest.name %></p> 
        <%})%>
         </section> 
 </main>

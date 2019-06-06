@@ -4,34 +4,55 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
-var mongojs = require('mongojs');
-var db = mongojs('datingApp', ['interessts']);
 //test array
+/*
 var interesst = [{
 	name: 'Golf'
 }];
+*/
+
 var app = express();
-/*var mongoose = require('mongoose');*/
-/*var Schema = mongoose.Schema;*/
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 //source: https://www.youtube.com/watch?v=oT2HOw3fWp4
 
 //connect to mongoddb
-/*mongoose.connect('mongodb://localhost/datingApp');
+mongoose.connect('mongodb://localhost/datingApp');
 
 var db = mongoose.connection;
 
-//Check of er een connectie is.
-mongoose.connection.once('open',function(){
-	console.log('Database is connected, cool..');
-})
-//Check if there is a error
-.on('error', function(error){
-	console.log('Ah oh, something went wrong. Darn..', error);
+//Source: https://mongoosejs.com/docs/api.html#model_Model.find
+//Define a schema
+var interstsSchema = new Schema({
+	name: String
+}, {
+	collection: 'interessts'
 });
-*/
-/*db.on('error', console.error.blind(console, 'connection error'));
-db.once('open', function(){
-});*/
+
+var interest = mongoose.model('interessts', interstsSchema);
+
+
+//Check of er een connectie is.
+mongoose.connection.once('open', function () {
+		console.log('Database is connected, cool..');
+		interest.find({}, function (err, interests) {
+			if (err) {
+				console.log("Er gaat iets niet goed.");
+			} else {
+				interests.forEach(function (element) {
+					console.log(element.name);
+				});
+			}
+		});
+	});
+
+	//Check if there is a error
+	db.on('error', function (error) {
+		console.log('Ah oh, something went wrong. Darn..', error);
+	});
+
+//db.on('error', console.error.blind(console, 'connection error'));
+db.once('open', function () {});
 
 //Set templating engine to ejs
 app.set('view engine', 'ejs');
@@ -69,49 +90,50 @@ app.use(expressValidator({
 	}
 }));
 
-/*
-//Source: https://mongoosejs.com/docs/api.html#model_Model.find
-//Define a schema
-var intersstsSchema = new Schema({name:String},
-	{collection: 'interessts'});
-
-var interesst = mongoose.model('interessts', intersstsSchema);
-
-var allInteressts = interesst.findOne({type: 'name'});
-*/
 
 //Renders the page and takes the dat from database (docs)
 app.get('/', function (req, res) {
-	db.interessts.find(function (err, docs) {
-		res.render('index', {
-			interesst: docs
-		});
+	interest.find(function (err,interests ) {
+		if (err) {
+			console.log("Er gaat iets niet goed.");
+		} else {
+			//var allinterests = []
+			// interests.forEach(function (element) {
+			// 	console.log(element.name);
+			// 	allinterests.push(element.name);
+				
+			// });
+			res.render('index', {
+				data: interests
+			});
+		}
 	});
 
 });
 
 app.post('/', function (req, res) {
 
-	req.checkBody('interesst', 'Laat je matches weten wat jou interesseert').notEmpty();
+	req.checkBody('interest', 'Laat je matches weten wat jou interesseert').notEmpty();
 
 	var errors = req.validationErrors();
 	//When tehir is a error,render the page with the error message
 	if (errors) {
-		db.interessts.find(function (err, docs) {
-		res.render('index', {
-			interesst: docs,
-			errors: errors
+		interest.find(function (err, interests) {
+			res.render('index', {
+				data: interests,
+				errors: errors
+			});
 		});
-	});
-	//If everything is oke, make a new interesst
+		//If everything is oke, make a new interesst
 	} else {
 		var newInteresst = {
-			name: req.body.interesst
+			name: req.body.interest
 		};
-		db.interessts.insert(newInteresst, function (error, result) {
+		interest.create(newInteresst, function (error, entry) {
 			if (error) {
 				console.log(error);
 			}
+			entry.save();
 			res.redirect('/');
 		});
 	}
