@@ -166,6 +166,16 @@ p{
 	border-radius:  30px;
 }
 
+.deleteButton{
+	border: none;
+	height: 20px;
+	margin: 5px 0 0 0;
+	padding: 0 5px 0 5px;
+	border-radius: 10%;
+	color: white;
+	background-color: #035ba2;
+}
+
 li>p {
 	font-weight: bold;
 	position: relative;
