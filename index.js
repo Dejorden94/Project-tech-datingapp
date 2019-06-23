@@ -1,15 +1,11 @@
 //Bron: https://www.youtube.com/watch?v=gnsO8-xJ8rs&t=2121s
-var PORT = process.env.PORT || 3000;
+require('dotenv').config();
+var PORT = process.env.PORT || process.env.ENV_PORT;
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
-//test array
-/*
-var interesst = [{
-	name: 'Golf'
-}];
-*/
+var router = express.Router();
 
 var app = express();
 var mongoose = require('mongoose');
@@ -64,6 +60,8 @@ app.use(bodyParser.urlencoded({
 	extended: false
 }));
 
+
+
 //Set static Path
 app.use(express.static(path.join(__dirname, 'static')));
 
@@ -101,7 +99,6 @@ app.get('/', function (req, res) {
 			// interests.forEach(function (element) {
 			// 	console.log(element.name);
 			// 	allinterests.push(element.name);
-				
 			// });
 			res.render('index', {
 				data: interests
@@ -138,6 +135,17 @@ app.post('/', function (req, res) {
 		});
 	}
 });
+
+//Deletes a document
+function remove(req, res) {
+	var id = req.params.id;
+  
+	data = data.filter(function (value) {
+	  return value.id !== id;
+	});
+  
+	res.json({status: 'ok'});
+  }
 
 app.use(notFound);
 

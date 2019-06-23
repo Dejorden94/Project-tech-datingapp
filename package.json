@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Dejorden94/Project-tech-datingapp#readme",
   "dependencies": {
+    "dotenv": "^8.0.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-validator": "^5.3.1",
