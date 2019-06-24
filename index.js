@@ -136,7 +136,8 @@ app.post('/', function (req, res) {
 		interest.find(function (err, interests) {
 			res.render('index', {
 				data: interests,
-				errors: errors
+				errors: errors,
+				user: req.session.user
 			});
 		});
 		//If everything is oke, make a new interesst
