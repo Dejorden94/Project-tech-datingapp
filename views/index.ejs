@@ -1,19 +1,23 @@
 <% include partials/header%>
+<div class="container">
+    <div class="progress-bar" id="myBar"></div>
+</div>
 <main>
     <% if(errors != undefined){ %>
-            <% errors.forEach(function(error){ %>
-                <p id="errorMsg"><%= error.msg %> </p>
-        <% }) %>
+    <% errors.forEach(function(error){ %>
+    <p id="errorMsg"><%= error.msg %> </p>
+    <% }) %>
     <% } %>
-   <form method="POST" action="/">
-        <input type="text" placeholder= "Voeg interesse toe" name="interest">
+
+    <form method="POST" action="/">
+        <input type="text" placeholder="Voeg interesse toe" name="interest">
         <input type="image" src="images/submit-button.png" border="0" alt="Submit" />
-   </form>
-   <section> 
-       <% data.forEach(function(interest){ %>
-        <p><%= interest.name %></p> 
-        <a href="#" data-id= "<%= interest._id %>" class="deleteButton">Verwijder</a>
-       <%})%>
-        </section> 
+    </form>
+    <section>
+        <% data.forEach(function(interest){ %>
+        <p><%= interest.name %></p>
+        <a href="#" data-id="<%= interest._id %>" class="deleteButton">Verwijder</a>
+        <%})%>
+    </section>
 </main>
 <% include partials/footer%>
