@@ -27,6 +27,8 @@ mongoose.connect(
 
 var db = mongoose.connection;
 
+console.log(db);
+
 //Source: https://mongoosejs.com/docs/api.html#model_Model.find
 //Define a schema
 var interstsSchema = new Schema({
