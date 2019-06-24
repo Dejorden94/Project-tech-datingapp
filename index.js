@@ -5,13 +5,14 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
+var session = require('express-session');
 var app = express();
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 //source: https://www.youtube.com/watch?v=oT2HOw3fWp4
 
-//connect to mongoddb
+//Grote dank aan Nick connect to mongoddb
 mongoose.connect(
 	"mongodb+srv://" +
 	  process.env.DB_USERNAME +
@@ -27,8 +28,6 @@ mongoose.connect(
 
 var db = mongoose.connection;
 
-console.log(db);
-
 //Source: https://mongoosejs.com/docs/api.html#model_Model.find
 //Define a schema
 var interstsSchema = new Schema({
@@ -39,6 +38,12 @@ var interstsSchema = new Schema({
 
 var interest = mongoose.model('interessts', interstsSchema);
 
+express()
+.use(session({
+	resave: false,
+	saveUninitalized: true,
+	secret: process.env.SESSION_SECRET
+}));
 
 //Check of er een connectie is.
 mongoose.connection.once('open', function () {
@@ -146,6 +151,8 @@ app.post('/', function (req, res) {
 	}
 });
 
+
+//Bron:https://www.youtube.com/watch?v=aZ16pkrMkZE&amp=&index=7 en groten dank aan Rober Hoekstra
 app.delete('/interest/:id', function(req, res){
 	let query = {_id:req.params.id};
 	console.log(query);
