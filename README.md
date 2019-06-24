@@ -13,6 +13,8 @@ In Hooked dating you can
   * Make a profile
   * Upload pictures
   * Edit how you would describe yourself
+  * Add interests
+  * Remove interests
   * Edit what you are looking for in a partner
   * Chat
   * Logout
