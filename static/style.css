@@ -167,15 +167,21 @@ p{
 }
 
 .deleteButton{
-	border: none;
+	text-decoration: none;
+	display: block;
 	height: 20px;
-	margin: 5px 0 0 0;
+	width: 100px;
+	margin: 5px auto 0 auto;
 	padding: 0 5px 0 5px;
-	border-radius: 10%;
 	color: white;
 	background-color: #035ba2;
 }
 
+.login{
+	margin: 200px auto 0 auto;
+	width: 400px;
+	background-color: white;
+}
 li>p {
 	font-weight: bold;
 	position: relative;

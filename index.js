@@ -1,15 +1,14 @@
 //Bron: https://www.youtube.com/watch?v=gnsO8-xJ8rs&t=2121s
 require('dotenv').config();
-var PORT = process.env.PORT || process.env.ENV_PORT;
+var PORT = process.env.PORT || 3000;
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
-var router = express.Router();
-
 var app = express();
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+
 //source: https://www.youtube.com/watch?v=oT2HOw3fWp4
 
 //connect to mongoddb
@@ -60,8 +59,6 @@ app.use(bodyParser.urlencoded({
 	extended: false
 }));
 
-
-
 //Set static Path
 app.use(express.static(path.join(__dirname, 'static')));
 
@@ -70,7 +67,7 @@ app.use(function (req, res, next) {
 	res.locals.errors = null;
 	next();
 });
-// Express validator middleware
+// Express validator middleware, kijkt of de input die wordt gegeven geldig is
 app.use(expressValidator({
 	errorFormatter: function (param, msg, value) {
 		var namespace = param.split('.'),
@@ -136,16 +133,17 @@ app.post('/', function (req, res) {
 	}
 });
 
-//Deletes a document
-function remove(req, res) {
-	var id = req.params.id;
-  
-	data = data.filter(function (value) {
-	  return value.id !== id;
+app.delete('/interest/:id', function(req, res){
+	let query = {_id:req.params.id};
+	console.log(query);
+
+	interest.deleteOne(query, function(err){
+		if(err){
+			console.log(err);
+		}
+		res.send('Succes');
 	});
-  
-	res.json({status: 'ok'});
-  }
+});
 
 app.use(notFound);
 

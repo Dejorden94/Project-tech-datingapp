@@ -12,7 +12,7 @@
    <section> 
        <% data.forEach(function(interest){ %>
         <p><%= interest.name %></p> 
-        <input type="submit" class="deleteButton" value="Verwijder">
+        <a href="#" data-id= "<%= interest._id %>" class="deleteButton">Verwijder</a>
        <%})%>
         </section> 
 </main>
