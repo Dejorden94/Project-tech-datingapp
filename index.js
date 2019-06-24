@@ -12,7 +12,18 @@ var Schema = mongoose.Schema;
 //source: https://www.youtube.com/watch?v=oT2HOw3fWp4
 
 //connect to mongoddb
-mongoose.connect('mongodb://localhost/datingApp');
+mongoose.connect(
+	"mongodb+srv://" +
+	  process.env.DB_USERNAME +
+	  ":" +
+	  process.env.DB_PASSWORD +
+	  "@" +
+	  process.env.DB_SERVER +
+	  "/" +
+	  process.env.DB_NAME +
+	  "?retry?Writes=true",
+	{ useNewUrlParser: true }
+   );
 
 var db = mongoose.connection;
 
