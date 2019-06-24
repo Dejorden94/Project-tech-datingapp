@@ -149,7 +149,7 @@ app.use(notFound);
 
 //Port is 3000 orprocess.env.PORT beacause of Heroku
 app.listen(PORT, function () {
-	console.log('Server gestart op Port 3000..');
+	console.log('Server gestart op ' + PORT);
 });
 
 //If the status is 404 then render the not0found page
