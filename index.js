@@ -38,12 +38,6 @@ var interstsSchema = new Schema({
 
 var interest = mongoose.model('interessts', interstsSchema);
 
-express()
-.use(session({
-	resave: false,
-	saveUninitalized: true,
-	secret: process.env.SESSION_SECRET
-}));
 
 //Check of er een connectie is.
 mongoose.connection.once('open', function () {
@@ -77,6 +71,14 @@ app.use(bodyParser.urlencoded({
 	extended: false
 }));
 
+app
+.use(session({
+	resave: false,
+	saveUninitalized: false,
+	secret: 'secret'
+}));
+
+
 //Set static Path
 app.use(express.static(path.join(__dirname, 'static')));
 
@@ -106,27 +108,28 @@ app.use(expressValidator({
 
 //Renders the page and takes the dat from database (docs)
 app.get('/', function (req, res) {
+		//if there is no session redirect to login page
+		if(!req.session.user){
+			res.redirect('/login');
+		}
 	interest.find(function (err,interests ) {
 		if (err) {
 			console.log("Er gaat iets niet goed.");
 		} else {
-			//var allinterests = []
-			// interests.forEach(function (element) {
-			// 	console.log(element.name);
-			// 	allinterests.push(element.name);
-			// });
 			res.render('index', {
-				data: interests
+				data: interests,
+				user: req.session.user
 			});
+			console.log(req.session.user);
 		}
 	});
 
 });
 
+
 app.post('/', function (req, res) {
-
 	req.checkBody('interest', 'Laat je matches weten wat jou interesseert').notEmpty();
-
+	  
 	var errors = req.validationErrors();
 	//When tehir is a error,render the page with the error message
 	if (errors) {
@@ -146,11 +149,25 @@ app.post('/', function (req, res) {
 				console.log(error);
 			}
 			entry.save();
+			req.session.asd = "asdas";
 			res.redirect('/');
 		});
 	}
 });
 
+app.get('/login', function(req, res){
+	res.render('login', {
+
+	});
+});
+
+//makes a session
+app.post('/submit',function(req, res){
+	//gets the email form email field
+	req.session.user = req.body.email;
+	//reirects to index ejs
+	res.redirect('/');
+});
 
 //Bron:https://www.youtube.com/watch?v=aZ16pkrMkZE&amp=&index=7 en groten dank aan Rober Hoekstra
 app.delete('/interest/:id', function(req, res){
