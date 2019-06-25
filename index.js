@@ -158,7 +158,6 @@ app.post('/', function (req, res) {
 
 app.get('/login', function(req, res){
 	res.render('login', {
-
 	});
 });
 
@@ -166,11 +165,11 @@ app.get('/login', function(req, res){
 app.post('/submit',function(req, res){
 	//gets the email form email field
 	req.session.user = req.body.email;
-	//reirects to index ejs
+	//redirects to index ejs
 	res.redirect('/');
 });
 
-//Bron:https://www.youtube.com/watch?v=aZ16pkrMkZE&amp=&index=7 en groten dank aan Rober Hoekstra
+//Bron:https://www.youtube.com/watch?v=aZ16pkrMkZE&amp=&index=7
 app.delete('/interest/:id', function(req, res){
 	let query = {_id:req.params.id};
 	console.log(query);
@@ -185,7 +184,7 @@ app.delete('/interest/:id', function(req, res){
 
 app.use(notFound);
 
-//Port is 3000 orprocess.env.PORT beacause of Heroku
+//Port is 3000 or process.env.PORT beacause of Heroku
 app.listen(PORT, function () {
 	console.log('Server gestart op ' + PORT);
 });
